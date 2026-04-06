@@ -372,6 +372,11 @@ img {
     line-height: 1.8;
 }
 
+/* Hero review teaser - hidden on desktop, shown on mobile */
+.hero-review-teaser {
+    display: none;
+}
+
 .hero-actions {
     display: flex;
     gap: 16px;
@@ -425,6 +430,62 @@ img {
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 4px;
+}
+
+/* ========== How It Works Strip ========== */
+.how-it-works-strip {
+    background: var(--bg-section);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0;
+}
+
+.hiw-grid {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.hiw-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hiw-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.hiw-step strong {
+    font-size: 14px;
+    color: var(--text-primary);
+    display: block;
+}
+
+.hiw-step p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hiw-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hiw-step {
+        gap: 14px;
+        padding: 12px 16px;
+        background: rgba(201, 169, 110, 0.04);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+    }
+
+    .hiw-icon {
+        font-size: 24px;
+    }
 }
 
 /* ========== Sections ========== */
@@ -1492,7 +1553,27 @@ noscript .fade-in,
     }
 
     .hero-gallery {
-        display: none;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-gallery-img {
+        flex: 0 0 65%;
+        scroll-snap-align: center;
+        border-radius: var(--radius-sm);
+        aspect-ratio: 3/4;
+    }
+
+    .hero-gallery-img.tall {
+        grid-row: unset;
+        flex: 0 0 65%;
     }
 
     .hero h1 {
@@ -2091,39 +2172,89 @@ noscript .fade-in,
     .hero {
         min-height: auto;
         padding-bottom: 0;
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1510 40%, #0a0a0a 100%);
+    }
+
+    .hero::before {
+        background: radial-gradient(
+            ellipse 80% 50% at 50% 20%,
+            rgba(201, 169, 110, 0.08) 0%,
+            transparent 70%
+        );
     }
 
     .hero-content {
-        padding: 100px 0 60px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-        line-height: 1.1;
+        padding: 90px 0 40px;
+        gap: 32px;
     }
 
     .hero-tag {
         font-size: 11px;
         letter-spacing: 3px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+        line-height: 1.1;
+        text-align: center;
     }
 
     .hero-desc {
         font-size: 15px;
         line-height: 1.7;
-        margin-bottom: 28px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .hero-actions {
+        gap: 10px;
     }
 
     .hero-actions .btn {
         padding: 16px 24px;
         font-size: 15px;
         min-height: 52px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Mobile hero gallery - horizontal scroll strip */
+    .hero-gallery {
+        order: -1;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 20px 12px;
+        margin: 0 -20px;
+        scrollbar-width: none;
+    }
+
+    .hero-gallery::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-gallery-img {
+        flex: 0 0 55%;
+        scroll-snap-align: center;
+        border-radius: var(--radius);
+        aspect-ratio: 3/4;
+        border: 2px solid rgba(201, 169, 110, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-gallery-img.tall {
+        grid-row: unset;
+        flex: 0 0 55%;
     }
 
     .hero-stats {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        padding-top: 32px;
+        gap: 12px;
+        padding-top: 24px;
     }
 
     .stat::after {
@@ -2132,10 +2263,14 @@ noscript .fade-in,
 
     .stat {
         text-align: center;
-        padding: 16px;
-        background: rgba(201, 169, 110, 0.04);
-        border: 1px solid var(--border);
+        padding: 14px 8px;
+        background: rgba(201, 169, 110, 0.06);
+        border: 1px solid rgba(201, 169, 110, 0.15);
         border-radius: var(--radius-sm);
+    }
+
+    .stat-num {
+        font-size: 20px;
     }
 
     /* ===== Nav mobile optimization ===== */
@@ -2238,6 +2373,37 @@ noscript .fade-in,
     .pricing-table th:first-child {
         white-space: normal;
         min-width: 140px;
+    }
+
+    /* ===== Hero review teaser (mobile only) ===== */
+    .hero-review-teaser {
+        display: block;
+        text-align: center;
+        padding: 16px 20px;
+        background: rgba(201, 169, 110, 0.06);
+        border: 1px solid rgba(201, 169, 110, 0.15);
+        border-radius: var(--radius);
+        margin-top: 8px;
+    }
+
+    .hero-review-stars {
+        color: var(--gold);
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .hero-review-teaser p {
+        font-size: 14px;
+        color: var(--text-primary);
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 6px;
+    }
+
+    .hero-review-author {
+        font-size: 12px;
+        color: var(--text-secondary);
     }
 
     /* ===== About mobile ===== */
