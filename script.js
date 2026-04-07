@@ -1,5 +1,5 @@
 // ========================================
-// Luxe Mobile Massage — Interactive Features
+// QQ Mobile Massage — Interactive Features
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
