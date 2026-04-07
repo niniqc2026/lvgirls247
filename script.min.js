@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '.article-header',
         '.article-cta',
         '.section-title',
-        '.section-desc'
+        '.section-desc',
+        '.vegas-exp-card'
     ];
 
     animatedSelectors.forEach(selector => {

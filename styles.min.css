@@ -1499,6 +1499,263 @@ noscript .fade-in,
     transform: none !important;
 }
 
+/* ========== Vegas Elements ========== */
+
+/* Neon glow animation */
+@keyframes neon-flicker {
+    0%, 100% { text-shadow: 0 0 10px rgba(201, 169, 110, 0.5), 0 0 20px rgba(201, 169, 110, 0.3), 0 0 40px rgba(201, 169, 110, 0.15); }
+    5% { text-shadow: 0 0 10px rgba(201, 169, 110, 0.4), 0 0 20px rgba(201, 169, 110, 0.2); }
+    10% { text-shadow: 0 0 10px rgba(201, 169, 110, 0.5), 0 0 20px rgba(201, 169, 110, 0.3), 0 0 40px rgba(201, 169, 110, 0.15); }
+}
+
+@keyframes neon-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(201, 169, 110, 0.2), 0 0 30px rgba(201, 169, 110, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.35), 0 0 40px rgba(201, 169, 110, 0.15); }
+}
+
+/* Vegas skyline divider */
+.vegas-skyline-divider {
+    position: relative;
+    height: 80px;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.vegas-skyline-divider::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background:
+        /* Stratosphere-like tower */
+        linear-gradient(to right, transparent 8%, transparent 8.5%, var(--border) 8.5%, var(--border) 9%, transparent 9%) no-repeat,
+        linear-gradient(to top, var(--border) 50%, transparent 50%) 8.75% 0 / 2px 80px no-repeat,
+        /* Wide hotel left */
+        linear-gradient(to top, var(--border-light) 35%, transparent 35%) 14% 0 / 60px 80px no-repeat,
+        linear-gradient(to top, var(--border-light) 45%, transparent 45%) 16% 0 / 25px 80px no-repeat,
+        /* Pyramid area */
+        linear-gradient(to top, var(--border) 30%, transparent 30%) 26% 0 / 50px 80px no-repeat,
+        linear-gradient(to top, var(--border) 20%, transparent 20%) 28% 0 / 30px 80px no-repeat,
+        /* Tall hotel center */
+        linear-gradient(to top, var(--border-light) 55%, transparent 55%) 38% 0 / 35px 80px no-repeat,
+        linear-gradient(to top, var(--border-light) 65%, transparent 65%) 40% 0 / 20px 80px no-repeat,
+        /* Wide resort */
+        linear-gradient(to top, var(--border-light) 30%, transparent 30%) 50% 0 / 80px 80px no-repeat,
+        linear-gradient(to top, var(--border-light) 50%, transparent 50%) 52% 0 / 30px 80px no-repeat,
+        /* Tall tower right */
+        linear-gradient(to top, var(--border-light) 70%, transparent 70%) 65% 0 / 18px 80px no-repeat,
+        /* Eiffel-style */
+        linear-gradient(to top, var(--border) 60%, transparent 60%) 72% 0 / 3px 80px no-repeat,
+        linear-gradient(to top, var(--border) 35%, transparent 35%) 70.5% 0 / 30px 80px no-repeat,
+        /* Right buildings */
+        linear-gradient(to top, var(--border-light) 40%, transparent 40%) 82% 0 / 50px 80px no-repeat,
+        linear-gradient(to top, var(--border-light) 55%, transparent 55%) 85% 0 / 25px 80px no-repeat,
+        linear-gradient(to top, var(--border-light) 30%, transparent 30%) 92% 0 / 40px 80px no-repeat;
+    opacity: 0.4;
+}
+
+/* Neon line at bottom of skyline */
+.vegas-skyline-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    box-shadow: 0 0 10px rgba(201, 169, 110, 0.5), 0 0 20px rgba(201, 169, 110, 0.2);
+}
+
+/* Vegas Experiences Section */
+.vegas-experiences {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, #110f0a 50%, var(--bg-dark) 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.vegas-experiences::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+}
+
+.vegas-experiences .section-title {
+    text-align: center;
+    text-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
+}
+
+.vegas-experiences .section-tag {
+    text-align: center;
+    display: block;
+}
+
+.vegas-experiences .section-tag::before {
+    display: none;
+}
+
+.vegas-experiences .section-desc {
+    text-align: center;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vegas-exp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.vegas-exp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vegas-exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.vegas-exp-card:hover {
+    border-color: rgba(201, 169, 110, 0.3);
+    transform: translateY(-4px);
+    animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.vegas-exp-card:hover::before {
+    opacity: 1;
+}
+
+.vegas-exp-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.3));
+}
+
+.vegas-exp-card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.vegas-exp-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Vegas neon title effect on hero */
+.hero h1 .neon-vegas {
+    position: relative;
+    animation: neon-flicker 4s ease-in-out infinite;
+    color: var(--gold-light);
+}
+
+/* Vegas marquee strip - scrolling hotel names */
+.vegas-marquee {
+    background: rgba(201, 169, 110, 0.04);
+    border-top: 1px solid rgba(201, 169, 110, 0.1);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.vegas-marquee::before,
+.vegas-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.vegas-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.vegas-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    display: flex;
+    gap: 48px;
+    animation: marquee-scroll 30s linear infinite;
+    width: max-content;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+}
+
+.marquee-item .marquee-dot {
+    color: var(--gold);
+    font-size: 8px;
+}
+
+/* Vegas welcome badge in hero */
+.vegas-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(201, 169, 110, 0.08);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.vegas-badge-icon {
+    font-size: 16px;
+}
+
 /* ========== Responsive ========== */
 @media (max-width: 1024px) {
     .services-grid,
@@ -2547,5 +2804,44 @@ noscript .fade-in,
     .hotel-logos span {
         padding: 10px 16px;
         font-size: 12px;
+    }
+
+    /* ===== Vegas elements mobile ===== */
+    .vegas-skyline-divider {
+        height: 50px;
+    }
+
+    .vegas-exp-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .vegas-exp-card {
+        padding: 24px 16px;
+    }
+
+    .vegas-exp-icon {
+        font-size: 28px;
+    }
+
+    .vegas-exp-card h3 {
+        font-size: 16px;
+    }
+
+    .vegas-exp-card p {
+        font-size: 13px;
+    }
+
+    .vegas-experiences {
+        padding: 56px 0;
+    }
+
+    .marquee-item {
+        font-size: 11px;
+        gap: 6px;
+    }
+
+    .marquee-track {
+        gap: 32px;
     }
 }
