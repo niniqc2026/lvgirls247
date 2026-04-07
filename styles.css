@@ -3567,7 +3567,7 @@ noscript .fade-in,
     #services { order: 6; }
     #pricing { order: 7; }
     #reviews { order: 8; }
-    #therapists { order: 9; }
+    /* #therapists moved inline to hero */
     #about { order: 10; }
     .coverage { order: 11; }
     .vegas-skyline-divider { order: 12; }
@@ -3734,6 +3734,69 @@ noscript .fade-in,
 
 .therapist-view-all {
     display: inline-block;
+}
+
+/* --- Hero Inline Therapist Preview --- */
+.hero-therapist-preview {
+    margin-bottom: 32px;
+}
+
+.hero-therapist-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 12px 20px 12px 12px;
+    background: rgba(201, 169, 110, 0.05);
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.hero-therapist-link:hover {
+    background: rgba(201, 169, 110, 0.1);
+    border-color: rgba(201, 169, 110, 0.3);
+}
+
+.hero-therapist-link .therapist-preview-grid {
+    margin: 0;
+}
+
+.hero-therapist-link .therapist-preview-img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--bg-dark);
+    margin-left: -8px;
+}
+
+.hero-therapist-link .therapist-preview-img:first-child {
+    margin-left: 0;
+}
+
+.hero-therapist-link .therapist-preview-more {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    margin-left: -8px;
+}
+
+.hero-therapist-text {
+    font-size: 13px;
+    color: var(--gold-light);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .hero-therapist-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-therapist-text {
+        font-size: 12px;
+    }
 }
 
 /* --- Therapist Page Hero --- */
