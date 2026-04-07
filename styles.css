@@ -3749,14 +3749,15 @@ noscript .fade-in,
     display: block;
     text-decoration: none;
     padding: 20px 24px;
-    background: linear-gradient(135deg, rgba(201, 169, 110, 0.08), rgba(201, 169, 110, 0.04));
-    border: 1.5px solid rgba(201, 169, 110, 0.25);
+    background: linear-gradient(135deg, rgba(255, 45, 123, 0.06), rgba(0, 212, 255, 0.06), rgba(180, 77, 255, 0.06));
+    border: 1.5px solid rgba(255, 45, 123, 0.3);
     border-radius: var(--radius);
     margin-bottom: 32px;
     transition: all 0.3s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 45, 123, 0.08), 0 0 40px rgba(0, 212, 255, 0.05);
 }
 
 .hero-therapist-card::before {
@@ -3766,23 +3767,27 @@ noscript .fade-in,
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    background: linear-gradient(90deg, var(--neon-pink), var(--gold-light), var(--neon-blue));
+    animation: neon-line-glow 4s ease-in-out infinite;
 }
 
 .hero-therapist-card:hover {
-    background: rgba(201, 169, 110, 0.12);
-    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(255, 45, 123, 0.1), rgba(0, 212, 255, 0.1));
+    border-color: var(--neon-pink);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201, 169, 110, 0.1);
+    box-shadow: 0 8px 30px rgba(255, 45, 123, 0.15), 0 0 40px rgba(0, 212, 255, 0.1);
 }
 
 .hero-therapist-label {
-    display: block;
+    display: inline-block;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--gold);
+    color: #fff;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    padding: 4px 14px;
+    border-radius: 100px;
     margin-bottom: 14px;
 }
 
@@ -3820,33 +3825,35 @@ noscript .fade-in,
 }
 
 .hero-face.more {
-    background: rgba(201, 169, 110, 0.2);
-    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, rgba(255, 45, 123, 0.2), rgba(180, 77, 255, 0.2));
+    border: 2px solid var(--neon-pink);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--neon-pink);
 }
 
 .hero-therapist-cta {
     display: inline-block;
     font-size: 13px;
     font-weight: 600;
-    color: var(--gold-light);
+    color: var(--neon-pink);
     letter-spacing: 0.5px;
     padding: 8px 20px;
-    border: 1px solid rgba(201, 169, 110, 0.3);
+    border: 1px solid var(--neon-pink);
     border-radius: 100px;
     transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 45, 123, 0.3);
 }
 
 .hero-therapist-card:hover .hero-therapist-cta {
-    background: var(--gold);
-    color: #000;
-    border-color: var(--gold);
+    background: var(--neon-pink);
+    color: #fff;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px rgba(255, 45, 123, 0.4);
 }
 
 @media (max-width: 768px) {
