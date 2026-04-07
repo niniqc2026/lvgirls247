@@ -1,5 +1,5 @@
 // ========================================
-// QQ Mobile Massage — Interactive Features
+// ACE Mobile Massage — Interactive Features
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {

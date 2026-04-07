@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://qqmobilemassage.com/sitemap.xml
+Sitemap: https://acemobilemassage.com/sitemap.xml
