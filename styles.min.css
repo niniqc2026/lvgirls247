@@ -134,7 +134,14 @@ img {
     transition: transform var(--transition);
 }
 
-.logo:hover .logo-icon {
+.logo-img {
+    width: 40px;
+    height: 40px;
+    transition: transform var(--transition);
+}
+
+.logo:hover .logo-icon,
+.logo:hover .logo-img {
     transform: rotate(45deg);
 }
 

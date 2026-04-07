@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#f0d060"/>
+      <stop offset="100%" stop-color="#c9a96e"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer shield -->
+  <path d="M24 3 L43 16 L43 32 Q43 45 24 45 Q5 45 5 32 L5 16 Z" fill="none" stroke="url(#gold)" stroke-width="1.5"/>
+  <!-- Inner shield -->
+  <path d="M24 7 L39 18 L39 31 Q39 41 24 41 Q9 41 9 31 L9 18 Z" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.4"/>
+  <!-- Spade symbol -->
+  <path d="M24 12 Q18 18 14 22 Q11 25 14 28 Q17 31 20 28 L19 33 L29 33 L28 28 Q31 31 34 28 Q37 25 34 22 Q30 18 24 12Z" fill="url(#gold)" opacity="0.9"/>
+</svg>
