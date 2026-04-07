@@ -3670,3 +3670,296 @@ noscript .fade-in,
         flex-shrink: 0;
     }
 }
+
+/* ========================================
+   Therapist Preview (Homepage) +
+   Therapist Page + Lightbox
+   ======================================== */
+
+/* --- Homepage: Compact Therapist Preview --- */
+.therapists-preview {
+    text-align: center;
+}
+
+.therapist-preview-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 32px auto 28px;
+}
+
+.therapist-preview-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--bg-dark);
+    margin-left: -12px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.therapist-preview-img:first-child {
+    margin-left: 0;
+}
+
+.therapist-preview-img:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.therapist-preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.therapist-preview-more {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(201, 169, 110, 0.15);
+    border: 2px solid var(--gold);
+    margin-left: -12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.therapist-view-all {
+    display: inline-block;
+}
+
+/* --- Therapist Page Hero --- */
+.therapist-page-hero {
+    padding: 120px 0 40px;
+    background: linear-gradient(180deg, #0a0a0a, var(--bg-section));
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+/* --- Therapist Thumbnail Grid --- */
+.therapist-thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.therapist-thumb {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    aspect-ratio: 3/4;
+}
+
+.therapist-thumb:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(201, 169, 110, 0.15);
+}
+
+.therapist-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease;
+}
+
+.therapist-thumb:hover img {
+    transform: scale(1.05);
+}
+
+.thumb-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 8px 8px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.therapist-page-cta {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.therapist-page-cta p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* --- Lightbox --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.lightbox-caption {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--gold);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(201, 169, 110, 0.3);
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+/* --- Mobile: Therapist Thumb Grid --- */
+@media (max-width: 768px) {
+    .therapist-thumb-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .therapist-page-hero {
+        padding: 90px 0 24px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .lightbox-content img {
+        max-height: 65vh;
+    }
+
+    .therapist-preview-img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .therapist-preview-more {
+        width: 56px;
+        height: 56px;
+        font-size: 15px;
+    }
+}
