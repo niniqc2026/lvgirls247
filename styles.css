@@ -3453,3 +3453,220 @@ noscript .fade-in,
         font-size: 10px;
     }
 }
+
+/* ========================================
+   MOBILE OPTIMIZATION PASS
+   ======================================== */
+
+/* --- Available Now Badge --- */
+.available-now-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #25D366;
+    margin-bottom: 12px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #25D366;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse-green 2s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse-green {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(37, 211, 102, 0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 12px rgba(37, 211, 102, 0.9); }
+}
+
+/* --- Promo Banner --- */
+.promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, rgba(255, 45, 123, 0.08), rgba(201, 169, 110, 0.1));
+    border-top: 1px solid rgba(255, 45, 123, 0.2);
+    border-bottom: 1px solid rgba(255, 45, 123, 0.2);
+    flex-wrap: wrap;
+}
+
+.promo-badge {
+    background: var(--neon-pink);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.promo-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.promo-text strong {
+    color: var(--gold-light);
+}
+
+.promo-cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    padding: 6px 16px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.promo-cta:hover {
+    background: var(--neon-pink);
+    color: #fff;
+}
+
+/* === Mobile-specific optimizations === */
+@media (max-width: 768px) {
+
+    /* --- Mobile section reordering via flexbox --- */
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Target order:
+       Hero (0) > Social Proof (1) > Promo (2) > Neon Divider (3) > How-It-Works (4) >
+       Services (5) > Pricing (6) > Reviews (7) > Therapists (8) > Marquee (9) >
+       About (10) > Coverage (11) > Vegas Skyline (12) > Strip Banner (13) >
+       Vegas Experiences (14) > Booking (15) > FAQ (16) > Service Area (17) > Contact (18) */
+    .hero { order: 0; }
+    .social-proof-ticker { order: 1; }
+    .promo-banner { order: 2; }
+    .neon-divider-strip { order: 3; }
+    .how-it-works-strip { order: 4; }
+    .vegas-marquee { order: 5; }
+    #services { order: 6; }
+    #pricing { order: 7; }
+    #reviews { order: 8; }
+    #therapists { order: 9; }
+    #about { order: 10; }
+    .coverage { order: 11; }
+    .vegas-skyline-divider { order: 12; }
+    .vegas-strip-banner { order: 13; }
+    .vegas-experiences { order: 14; }
+    #booking { order: 15; }
+    #faq { order: 16; }
+    #service-area { order: 17; }
+    #contact { order: 18; }
+
+    /* --- Hide pricing comparison table on mobile --- */
+    .pricing-table-wrap {
+        display: none;
+    }
+
+    /* --- Therapist cards: horizontal scroll on mobile --- */
+    .therapists-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding: 0 0 16px;
+        scrollbar-width: none;
+    }
+
+    .therapists-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .therapist-card {
+        flex: 0 0 42%;
+        scroll-snap-align: center;
+    }
+
+    /* Team banner: also horizontal scroll */
+    .team-banner {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding-bottom: 12px;
+        scrollbar-width: none;
+        grid-template-columns: unset !important;
+    }
+
+    .team-banner::-webkit-scrollbar {
+        display: none;
+    }
+
+    .team-banner-img {
+        flex: 0 0 70%;
+        scroll-snap-align: center;
+    }
+
+    /* --- Fix footer tap targets --- */
+    .footer-links a {
+        padding: 10px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    /* --- Fix contact section tap targets --- */
+    .contact-item a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* --- Promo banner mobile --- */
+    .promo-banner {
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+    .promo-text {
+        font-size: 12px;
+    }
+
+    .promo-cta {
+        width: 100%;
+        text-align: center;
+        padding: 10px 16px;
+    }
+
+    /* --- Available Now badge centered on mobile --- */
+    .available-now-badge {
+        align-self: center;
+    }
+
+    /* --- WhatsApp CTA bar improvement --- */
+    .mobile-cta-bar .cta-whatsapp {
+        font-size: 12px;
+    }
+
+    .mobile-cta-bar .cta-whatsapp svg {
+        flex-shrink: 0;
+    }
+}
